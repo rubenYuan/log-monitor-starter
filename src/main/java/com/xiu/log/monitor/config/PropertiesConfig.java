@@ -14,8 +14,7 @@ import org.slf4j.LoggerFactory;
 public class PropertiesConfig {
     private final static Logger LOGGER = LoggerFactory.getLogger(PropertiesConfig.class);
 
-
-    static  {
+    static {
         PropertiesLoadConfig.loadAllProperties("config/fy-monitor.properties");
         LOGGER.info("\n<<<<<<<<<<<<<<<<<<<".concat(SysConstant.APP_NAME).concat("配置文件加载中").concat(">>>>>>>>>>>>\n")
                 .concat("[app_id]:".concat(PropertiesLoadConfig.getProperty("fy-monitor.app-id"))

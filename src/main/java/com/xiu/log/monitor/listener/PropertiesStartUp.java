@@ -1,6 +1,5 @@
 package com.xiu.log.monitor.listener;
 
-
 import com.xiu.log.monitor.config.PropertiesConfig;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Configuration;
