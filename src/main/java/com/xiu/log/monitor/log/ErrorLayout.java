@@ -9,8 +9,6 @@ import com.xiu.log.monitor.dto.DingDTO;
 import com.xiu.log.monitor.dto.DingText;
 import com.xiu.log.monitor.util.EmailManager;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,7 +23,6 @@ import java.util.List;
  * @Description: 日志打印格式
  */
 public class ErrorLayout extends LayoutBase<ILoggingEvent> {
-    private final static Logger LOGGER = LoggerFactory.getLogger(ErrorLayout.class);
     private static SimpleDateFormat log_time_format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private RestTemplate restTemplate = new RestTemplate();
 

@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xiu.log.monitor.listener.PropertiesStartUp
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xiu.log.monitor.listener.PropertiesStartUp,com.xiu.log.monitor.interceptor.LogAopHandler
