@@ -10,14 +10,20 @@
 
     全局日志处理
     采用了注解+aop结合的方式，使得业务方开箱即用，无缝对接，实现了日志灵活打印功能，包括请求的入参，出参等，以及兼容各个请求方式，get/post。
-   ![Image_text](https://img-blog.csdnimg.cn/20190913115226590.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70)
+   <p align="center">
+	<img src="https://img-blog.csdnimg.cn/20190913115226590.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70" alt="Sample"  width="400" height="150">
+   </p>     
     
-    error级别日志报警
     报警钉钉
-   ![Image text](https://img-blog.csdnimg.cn/20190912223045719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70)
+   <p align="center">
+	<img src="https://img-blog.csdnimg.cn/20190912223045719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70" alt="Sample"   width="300" height="150">
+   </p>    
+    
     报警邮件
-   ![Image text](https://img-blog.csdnimg.cn/20190912223109434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70)
-
+    
+   <p align="center">
+	<img src="https://img-blog.csdnimg.cn/20190912223109434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70" alt="Sample"   width="300" height="150">
+   </p>
 #二、服务
 
 ##2.1、项目版本
@@ -33,10 +39,11 @@
     依赖引入这个stater,logback.xml拦截error级别的日志，重写ErrorLayout方法。开启接口日志打印，捕获日志输入，输出
 
 ##三、感谢赞助
-![Image text](https://img-blog.csdnimg.cn/20190913114759984.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70)
-![Image text](https://img-blog.csdnimg.cn/20190913114830413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70)
-
- 
+   <p align="center">
+	<img src="https://img-blog.csdnimg.cn/20190913114759984.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_8,color_FFFFFF,t_70" alt="Sample"  width="200" height="250">
+   	<img src="https://img-blog.csdnimg.cn/20190913114830413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3J1YmVuOTUwMDE=,size_16,color_FFFFFF,t_70" alt="Sample"  width="200" height="250">
+    </p>
+   
  
  
 
