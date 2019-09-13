@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.xiu</groupId>
-    <artifactId>log-monitor</artifactId>
+    <artifactId>log-monitor-starter</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <description>日志监控系统</description>
 
