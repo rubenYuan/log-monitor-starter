@@ -66,13 +66,14 @@ public class LogAopHandler extends HandlerInterceptorAdapter {
             }
             queryString = requestBody;
         }
+        Object result = null;
         if (logTrace.isPrint()) {
             long beginTime = System.currentTimeMillis();
-            log.info("\n==={} 请求开始,参数|url: {}|uri: {}|method: {}|params: {}", logTrace.message(), url, uri, method, queryString);
+            log.info("\n===【{}】 请求开始,参数|url: {}|uri: {}|method: {}|params: {}", logTrace.message(), url, uri, method, queryString);
             // result的值就是被拦截方法的返回值
-            Object result = joinPoint.proceed();
-            log.info("\n==={} 请求结束,耗时: {}ms|返回数据: {} ", logTrace.message(), (System.currentTimeMillis() - beginTime), JSONObject.toJSONString(result));
+            result = joinPoint.proceed(objects);
+            log.info("\n===【{}】 请求结束,耗时: {}ms|返回数据: {} ", logTrace.message(), (System.currentTimeMillis() - beginTime), JSONObject.toJSONString(result));
         }
-        return null;
+        return result;
     }
 }
