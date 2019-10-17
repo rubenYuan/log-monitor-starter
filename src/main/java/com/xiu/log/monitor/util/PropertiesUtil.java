@@ -1,15 +1,13 @@
 package com.xiu.log.monitor.util;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.*;
 
 /**
- * @Author: Mr.xiu
- * @Date: 2019/8/31 14:40
- * @Description: 文件读取类
+ * Author:MR.Xiu
+ * Description:
+ * Date:Created in 6:49 下午 2019/9/23
+ * Copyright (c)  xdy_0722@sina.com All Rights Reserved.
  */
-@Slf4j
 public class PropertiesUtil {
     private static Map<String, ResourceBundle> cache = new HashMap<>();
 
@@ -19,7 +17,7 @@ public class PropertiesUtil {
     public static String getValue(String resources, String key) {
         String value = "";
         try {
-            ResourceBundle rb = (ResourceBundle)cache.get(resources);
+            ResourceBundle rb = cache.get(resources);
             if (rb == null) {
                 rb = ResourceBundle.getBundle(resources);
                 cache.put(resources, rb);

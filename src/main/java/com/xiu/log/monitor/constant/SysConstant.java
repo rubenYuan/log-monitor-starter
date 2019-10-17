@@ -7,5 +7,7 @@ package com.xiu.log.monitor.constant;
  */
 public abstract  class   SysConstant {
 
-    public final  static String APP_NAME = "【监控fy-monitor】";
+    public final  static String APP_NAME = "【监控xiu-monitor】";
+
+    public final  static String FILE_NAME = "config/xiu-monitor.properties";
 }

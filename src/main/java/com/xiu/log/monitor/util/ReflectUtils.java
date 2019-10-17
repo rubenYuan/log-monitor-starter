@@ -2,9 +2,7 @@ package com.xiu.log.monitor.util;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 /**
  * Author:MR.Xiu
@@ -26,11 +24,5 @@ public class ReflectUtils {
             throw new RuntimeException("JoinPoint get Method failed.", e);
         }
         return method;
-    }
-
-    public static String createMethodName(Method method) {
-        StringBuffer methodName = new StringBuffer(method.getName());
-        methodName.append(Arrays.toString(method.getParameterTypes()));
-        return methodName.toString();
     }
 }

@@ -3,10 +3,10 @@ package com.xiu.log.monitor.log;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.LayoutBase;
 import com.alibaba.fastjson.JSONObject;
-import com.xiu.log.monitor.config.PropertiesConfig;
 import com.xiu.log.monitor.dto.AtMobile;
 import com.xiu.log.monitor.dto.DingDTO;
 import com.xiu.log.monitor.dto.DingText;
+import com.xiu.log.monitor.dto.ParamDTO;
 import com.xiu.log.monitor.util.EmailManager;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.Assert;
@@ -28,9 +28,9 @@ public class ErrorLayout extends LayoutBase<ILoggingEvent> {
 
     @Override
     public String doLayout(ILoggingEvent event) {
-        String appId = PropertiesConfig.APP_ID;
+        String appId = ParamDTO.APP_ID;
         Assert.hasText(appId, "The appId must have value");
-        String appEnv = PropertiesConfig.APP_ENV;
+        String appEnv = ParamDTO.APP_ENV;
         Assert.hasText(appEnv, "The appEnv must have value");
         try {
             StackTraceElement[] stackTraceElements = event.getCallerData();
@@ -54,15 +54,15 @@ public class ErrorLayout extends LayoutBase<ILoggingEvent> {
      * @param stackTraceElement 堆栈
      */
     private void sendDing(ILoggingEvent event, StackTraceElement stackTraceElement) {
-        String dingUrl = PropertiesConfig.DING_URL;
-        String mobiles = PropertiesConfig.DING_MOBILE;
-        Boolean dingStatus = Boolean.valueOf(PropertiesConfig.IS_DING);
+        String dingUrl = ParamDTO.DING_URL;
+        String mobiles = ParamDTO.DING_MOBILE;
+        Boolean dingStatus = Boolean.valueOf(ParamDTO.IS_DING);
         if (dingStatus) {
             Assert.hasText(dingUrl, "The dingUrl must have value");
             StringBuilder sb = new StringBuilder(256);
             sb.append("### **异常警告**");
-            sb.append("\n > - 项目名称：".concat(PropertiesConfig.APP_ID));
-            sb.append("\n > - 项目环境：".concat(PropertiesConfig.APP_ENV));
+            sb.append("\n > - 项目名称：".concat(ParamDTO.APP_ID));
+            sb.append("\n > - 项目环境：".concat(ParamDTO.APP_ENV));
             sb.append("\n > - 错误信息：").append(event.getFormattedMessage());
             if (event.getThrowableProxy() != null) {
                 sb.append("\n > - 异常原因:").append(event.getThrowableProxy().getClassName().concat(".")).append(event.getThrowableProxy().getMessage());
@@ -88,14 +88,14 @@ public class ErrorLayout extends LayoutBase<ILoggingEvent> {
      * @param stackTraceElement 堆栈
      */
     private void sendEmail(ILoggingEvent event, StackTraceElement stackTraceElement) {
-        String emailUser = PropertiesConfig.EMAIL_USER;
-        Boolean emailStatus = Boolean.valueOf(PropertiesConfig.IS_EMAIL);
+        String emailUser = ParamDTO.EMAIL_USER;
+        Boolean emailStatus = Boolean.valueOf(ParamDTO.IS_EMAIL);
         if (emailStatus) {
             Assert.hasText(emailUser, "The emailUser must have value");
             StringBuilder sb = new StringBuilder(500);
             sb.append("<div style='font-size:20px;color:red'>【异常警告】</div>");
-            sb.append("<br/><b>项目名称：</b>".concat(PropertiesConfig.APP_ID));
-            sb.append("<br/><b>项目环境：</b>".concat(PropertiesConfig.APP_ENV));
+            sb.append("<br/><b>项目名称：</b>".concat(ParamDTO.APP_ID));
+            sb.append("<br/><b>项目环境：</b>".concat(ParamDTO.APP_ENV));
             sb.append("<br/><b>错误信息：</b>").append(event.getFormattedMessage());
             if (event.getThrowableProxy() != null) {
                 sb.append("<br/><b>异常原因：</b>").append(event.getThrowableProxy().getClassName()).append(event.getThrowableProxy().getMessage());
@@ -104,7 +104,7 @@ public class ErrorLayout extends LayoutBase<ILoggingEvent> {
             sb.append(".".concat(stackTraceElement.getMethodName()));
             sb.append("<br/><b>代码行数：</b>").append(stackTraceElement.getLineNumber());
             sb.append("<br/>").append(log_time_format.format(new Date())).append(" 发布");
-            String fileName = PropertiesConfig.APP_ID.concat("项目警报日志");
+            String fileName = ParamDTO.APP_ID.concat("项目警报日志");
             EmailManager.send(emailUser, null, fileName, sb.toString(), null);
         }
     }
@@ -118,7 +118,7 @@ public class ErrorLayout extends LayoutBase<ILoggingEvent> {
     private void packDingDto( String msg, String dingUrl, String mobiles) {
         DingText dingText = new DingText();
         dingText.setText(msg);
-        dingText.setTitle("#".concat(PropertiesConfig.APP_ID));
+        dingText.setTitle("#".concat(ParamDTO.APP_ID));
         DingDTO dingDTO = new DingDTO();
         dingDTO.setMsgtype("markdown");
         dingDTO.setMarkdown(dingText);

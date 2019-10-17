@@ -1,7 +1,5 @@
 package com.xiu.log.monitor.annotation;
 
-import org.springframework.boot.logging.LogLevel;
-
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
